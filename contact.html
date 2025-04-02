@@ -1,0 +1,55 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo">MySite</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Contact Me</h1>
+    <form 
+        action="https://formsubmit.co/southern257@gmail.com" 
+        method="POST" 
+        target="_blank"
+        class="contact-form"
+    >
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="5" required></textarea>
+
+        <!-- Optional settings -->
+        <input type="hidden" name="_subject" value="New message from your site!">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="box">
+        <input type="hidden" name="_next" value="thankyou.html"> <!-- Optional -->
+
+        <button type="submit">Send Message</button>
+    </form>
+       
+  </main>
+
+  <div id="form-status" style="margin-top: 1rem; color: green;"></div>
+
+  <script src="contact.js"></script>
+  
+</body>
+</html>

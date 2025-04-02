@@ -48,9 +48,9 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
   
-/* -------------------- */
-/* 🌐 projects page     */
-/* -------------------- */
+/* --------------------     */
+/* 🌐 projects page Styles */
+/* --------------------     */
 
 .projects-container {
     display: flex;
@@ -75,4 +75,48 @@ body {
   
   .project-card p {
     color: #666;
+  }
+
+  /* -------------------- */
+/* 📬 Contact Page Styles */
+/* -------------------- */
+
+.contact-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .contact-form label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  .contact-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background-color: #555;
   }
