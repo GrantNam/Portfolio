@@ -18,12 +18,12 @@ body {
 .background-container {
     position: fixed;
     top: 0;
-    left: -30%;  /* Push the container left */
-    width: 130%; /* Make container wider */
+    left: 0;
+    width: 100%;
     height: 100%;
-    background-image: url('src/images/Home_Background.jpeg');
+    background-image: url('src/images/Home_Background_2.jpg');
     background-size: cover;
-    background-position: right center;
+    background-position: center;
     z-index: -2;
     overflow: hidden;
 }
@@ -41,12 +41,84 @@ body::before {
 .about-container, .projects-container, .project-card, .contact-form, .content-box {
     background-color: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(5px);
-    border: 1px solid var(--pcb-silk);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-/* Remove previous background from pages */
-.projects-page, .about-page {
-    background: none;
+/* Consistent page styling for About and Projects pages */
+.about-page, .projects-page {
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(rgba(8, 29, 90, 0.3), rgba(8, 29, 90, 0.3));
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Consistent background image handling for both pages */
+.about-page::before, .projects-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.about-page::before {
+    background-image: url('src/images/Projects_Background_2.jpg');
+}
+
+.projects-page::before {
+    background-image: url('src/images/Projects_Background_2.jpg');
+}
+
+/* Section spacing */
+.about-section, .projects-section {
+    margin: 4rem 0 2rem;
+}
+
+/* Section titles */
+.section-title {
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Content text styling */
+.about-section p, .project-card p {
+    color: #445566;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+    text-align: left;
 }
 
 html {
@@ -129,32 +201,6 @@ main {
 /* 🌐 projects page Styles */
 /* --------------------     */
 
-.projects-section {
-    margin: 4rem 0;
-}
-
-.section-title {
-    color: white;
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    position: relative;
-    padding-bottom: 1rem;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background-color: white;
-    border-radius: 2px;
-}
-
 .projects-container {
     display: flex;
     flex-direction: column;
@@ -164,33 +210,6 @@ main {
     padding: 2rem 1rem;
     position: relative;
     z-index: 1;
-}
-
-/* Projects page background */
-.projects-page {
-    padding-top: 5rem;
-    position: relative;
-    min-height: 100vh;
-    background: linear-gradient(rgba(8, 29, 90, 0.3), rgba(8, 29, 90, 0.3));
-    margin: 0;
-    padding-bottom: 2rem;
-    box-sizing: border-box;
-    overflow-x: hidden;
-}
-
-/* Add a separate container for the projects background */
-.projects-page::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: -20%;  /* Less intense than home page's -30% */
-    width: 120%;  /* Less intense than home page's 130% */
-    height: 100%;
-    background-image: url('src/images/Projects_Background.jpeg');
-    background-size: cover;
-    background-position: right center;
-    z-index: -1;
-    overflow: hidden;
 }
 
 .projects-page h1 {
@@ -294,19 +313,6 @@ main {
 }
 
 /* About page styles */
-.about-page {
-    padding-top: 5rem;
-    min-height: 100vh;
-    background: linear-gradient(rgba(8, 29, 90, 0.3), rgba(8, 29, 90, 0.3)),
-                url('src/images/Projects_Background.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    padding-bottom: 2rem;
-    box-sizing: border-box;
-}
-
 .about-container {
     max-width: 900px;
     margin: 0 auto;
@@ -478,13 +484,6 @@ main {
     justify-content: flex-start;
 }
 
-.section-title {
-    color: white;
-    font-size: 2.5rem;
-    margin: 0 0 2rem 0;  /* Add bottom margin to create space between title and content */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
 .scroll-indicator {
     margin-top: 2rem;
     color: white;
@@ -634,26 +633,48 @@ main {
 
 .hero-content {
     text-align: center;
-    padding: 1rem 0;
+    padding: 0 0 0.5rem 0;
+    border-bottom: 1px solid rgba(8, 29, 90, 0.1);
+    margin: 0;
+}
+
+.hero-content h3 {
+    color: #081d5a;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.hero-content .contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0;
+}
+
+.hero-school, .hero-subtitle {
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 .hero-school {
-    color: #445566;
-    font-size: 1.5rem;
-    margin: 0;
-    padding-bottom: 0.5rem;
+    font-weight: bold;
+    color: #081d5a;
 }
 
 .hero-subtitle {
-    color: #445566;
-    font-size: 1.2rem;
-    margin: 0;
+    color: #081d5a;
+    text-decoration: none;
+}
+
+.hero-subtitle:hover {
+    text-decoration: underline;
 }
 
 .content-box {
     max-width: 800px;
     width: 90%;
-    margin: 0 auto;  /* Remove vertical margin since we control spacing with section padding */
+    margin: 0 auto;
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -757,4 +778,20 @@ main {
     list-style: disc;
     padding-left: 1.5rem;
     color: #445566;
+}
+
+.story-content {
+    padding-top: 2rem;
+    text-align: left;
+}
+
+.story-content p {
+    color: #445566;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.story-content p:last-child {
+    margin-bottom: 0;
 }
