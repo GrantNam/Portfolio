@@ -795,3 +795,30 @@ main {
 .story-content p:last-child {
     margin-bottom: 0;
 }
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.tools-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tools-column li {
+    color: #445566;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.tools-column li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #081d5a;
+}
