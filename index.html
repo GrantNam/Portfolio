@@ -108,6 +108,7 @@
           action="https://formsubmit.co/southern257@gmail.com" 
           method="POST"
           class="contact-form"
+          id="contactForm"
         >
           <label for="name">Name</label>
           <input type="text" name="name" id="name" required>
@@ -121,11 +122,11 @@
           <input type="hidden" name="_subject" value="New message from your site!">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="box">
-          <input type="hidden" name="_next" value="https://grantnam.github.io/Portfolio/thankyou.html/">
           <input type="text" name="_honey" style="display:none">
 
           <button type="submit">Send Message</button>
         </form>
+        <div id="form-status" style="margin-top: 1rem; color: green; display: none;"></div>
       </div>
     </section>
   </main>
@@ -159,6 +160,54 @@
         if (link.getAttribute('href').substring(1) === current) {
           link.classList.add('active');
         }
+      });
+    });
+
+    // Form submission handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show loading state
+      const submitButton = this.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'Sending...';
+      submitButton.disabled = true;
+
+      // Submit the form
+      fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this)
+      })
+      .then(response => {
+        if (response.ok) {
+          // Show success message
+          const statusDiv = document.getElementById('form-status');
+          statusDiv.textContent = 'Thank you for your message!';
+          statusDiv.style.display = 'block';
+          statusDiv.style.color = 'green';
+          
+          // Clear the form
+          this.reset();
+          
+          // Hide message after 3 seconds
+          setTimeout(() => {
+            statusDiv.style.display = 'none';
+          }, 3000);
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      })
+      .catch(error => {
+        // Show error message
+        const statusDiv = document.getElementById('form-status');
+        statusDiv.textContent = 'Sorry, there was an error sending your message. Please try again.';
+        statusDiv.style.display = 'block';
+        statusDiv.style.color = 'red';
+      })
+      .finally(() => {
+        // Reset button state
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
       });
     });
   </script>
