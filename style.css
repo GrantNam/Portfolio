@@ -205,9 +205,9 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 700px;
+    width: 100%;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 2rem;
     position: relative;
     z-index: 1;
 }
@@ -954,4 +954,24 @@ main {
     .image-gallery {
         padding: 0 1rem;
     }
+}
+
+.projects-page .content-box {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.projects-section {
+    margin: 4rem 0 2rem;
+    max-width: 800px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
