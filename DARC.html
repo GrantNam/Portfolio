@@ -1,0 +1,100 @@
+<!-- DARC.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Davis Autonomous Racing Car - Project Details</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo">DARC Project</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About Me</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="projects-page">
+    <div class="projects-section">
+      <h2 class="section-title">Davis Autonomous Racing Car</h2>
+      <div class="projects-container">
+        <div class="project-card" style="background-image: url('src/images/DARC_background.png');">
+          <div class="project-content">
+            <h3 style="color: #3498db;">Davis Autonomous Racing Car</h3>
+            <p>Integration of computer vision and LiDAR system for autonomous racing.</p>
+            <div class="project-date">February 2025 – Present</div>
+          </div>
+        </div>
+
+        <div class="content-box">
+          <h3>Project Overview</h3>
+          <p>Erik Contreras has been developing an autonomous racing car in Assistant Professor of Mechanical and Aerospace Engineering Shima Nazari's lab for preparation of F1tenth competition. Each year, Erik worked with UC Davis students to implement new features to the car. In 2024, the car integrated localization system using LiDAR system and succeeded in running autonomously when the predefined race map was given. In 2025, my team and I from ECS 193 (capstone project) started working with Erik to integrate computer vision to the system.</p>
+
+          <h3>Project Demo</h3>
+          <div class="video-container">
+            <iframe 
+              width="100%" 
+              height="500" 
+              src="https://www.youtube.com/embed/F9W_UYXFdFw" 
+              title="Davis Autonomous Racing Car Demo" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <h3>Project Goals</h3>
+          <ul>
+            <li>Develop a fully autonomous racing vehicle</li>
+            <li>Implement real-time object detection and tracking</li>
+            <li>Create efficient path planning algorithms</li>
+          </ul>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li>Recognition of racetrack in Bird-Eye View (BEV) using post data processing with segmentation model and perspective transform.</li>
+            <li>Real time data processing using neural network system.</li>
+            <li>Autonomous navigation and path planning.</li>
+          </ul>
+
+          <h3>Technical Details</h3>
+          <ul>
+            <li>Segmentation Models: Lang Segment Anything Model (LangSAM), Tiny Segment Anything Model (TinySAM)</li>
+            <li>Perspective Transform: OpenCV</li>
+            <li>Custom-built image fragment stitching</li>
+            <li>Algorithms for emergency breaks and obstacle avoidance</li>
+          </ul>
+
+          <h3>Image Processing</h3>
+          <div class="image-gallery">
+            <div class="gallery-item">
+              <img src="src/images/raw_image.jpg" alt="Step 1: Take Raw Footage">
+              <p>Step 1: Take Raw Footage</p>
+            </div>
+            <div class="gallery-item">
+              <img src="src/images/bitmask_2.png" alt="Step 2: Detect Raceline">
+              <p>Step 2: Detect Raceline</p>
+            </div>
+            <div class="gallery-item">
+              <img src="src/images/PT.png" alt="Step 3: Apply Perspective Transform">
+              <p>Step 3: Apply Perspective Transform</p>
+            </div>
+          </div>
+
+          <h3>Image Fragment Stitching</h3>
+          <div class="image-gallery">
+            <div class="gallery-item">
+              <p>Work in Progress</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html> 
